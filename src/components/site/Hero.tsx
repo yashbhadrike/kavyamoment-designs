@@ -1,13 +1,5 @@
-import logo from "@/assets/kavyaverse-logo.png.asset.json";
-import { images } from "@/data/site";
 import { ButtonLink } from "@/components/ui/button";
 import { Flourish, Ornament } from "./Ornament";
-
-const cards = [
-  { src: images.wedding, alt: "Wedding invitation", className: "left-[4%] top-[8%] w-[38%] md:w-[34%]", tilt: "-7deg", delay: "0s" },
-  { src: images.royal, alt: "Royal wedding invitation", className: "left-[31%] top-[0%] w-[42%] md:w-[38%] z-10", tilt: "0deg", delay: "1.2s" },
-  { src: images.birthday, alt: "Birthday invitation", className: "right-[4%] top-[14%] w-[38%] md:w-[34%]", tilt: "7deg", delay: "2.4s" },
-];
 
 export function Hero() {
   return (
@@ -15,25 +7,15 @@ export function Hero() {
       <Flourish className="pointer-events-none absolute -top-6 -left-10 w-64 opacity-60 md:w-96" />
       <Flourish className="pointer-events-none absolute -right-10 -bottom-10 w-64 rotate-180 opacity-50 md:w-96" />
 
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 pt-12 pb-16 md:px-8 md:pt-20 md:pb-24 lg:grid-cols-[1.05fr_1fr] lg:gap-8">
-        <div className="animate-rise flex flex-col items-center text-center lg:items-start lg:text-left">
-          <img
-            src={logo.url}
-            alt="KavyaVerse Digital — Every Design, Every Occasion."
-            width={1200}
-            height={896}
-            className="mb-8 w-56 md:w-72"
-          />
-          <span className="eyebrow mb-4">Digital Invitation Studio</span>
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 pt-14 pb-16 md:px-8 md:pt-20 md:pb-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <div className="animate-rise flex flex-col items-start text-left">
+          <span className="eyebrow mb-5">Digital Invitations • Designs • Celebrations</span>
           <h1 className="font-serif text-5xl leading-[0.98] font-medium text-balance md:text-6xl lg:text-7xl">
-            Beautiful Invitations,
-            <br />
-            <span className="text-gold-gradient italic">Made for Your Moments.</span>
+            Your Occasion.<br />Your Story.<br /><span className="text-wine italic">Beautifully Designed.</span>
           </h1>
           <Ornament className="my-6" />
           <p className="max-w-lg text-base text-muted-foreground md:text-lg">
-            Digital invitations designed for weddings, birthdays, ceremonies, celebrations and every special
-            occasion.
+            Beautiful digital invitations for weddings, birthdays, ceremonies and every moment worth celebrating.
           </p>
           <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
             <ButtonLink href="#occasions" variant="gold" size="lg">
@@ -57,24 +39,31 @@ export function Hero() {
           </dl>
         </div>
 
-        <div className="relative mx-auto aspect-[5/4] w-full max-w-xl">
-          <div className="absolute inset-x-[10%] top-[20%] bottom-[0%] rounded-full bg-gold/15 blur-3xl" />
-          {cards.map((c, i) => (
-            <div
-              key={c.alt}
-              className={`absolute animate-float ${c.className}`}
-              style={{ "--tilt": c.tilt, animationDelay: c.delay } as React.CSSProperties}
-            >
-              <img
-                src={c.src}
-                alt={c.alt}
-                width={768}
-                height={1024}
-                loading={i === 1 ? "eager" : "lazy"}
-                className="card-shine w-full rounded-sm shadow-float ring-1 ring-gold/40"
-              />
+        <div className="relative mx-auto aspect-[5/4] w-full max-w-xl" aria-label="Invitation format preview">
+          <div className="absolute left-[4%] top-[14%] w-[38%] -rotate-6 border border-gold/40 bg-card p-3 shadow-card">
+            <div className="aspect-[3/4] border border-gold/25 bg-ivory-deep p-4 text-center">
+              <span className="text-[0.55rem] tracking-[0.25em] text-gold-dark uppercase">Wedding</span>
+              <div className="mx-auto mt-8 size-8 rotate-45 border border-gold" />
+              <p className="mt-8 font-serif text-2xl text-wine">Aarav<br />&amp;<br />Meera</p>
+              <div className="mx-auto mt-6 h-px w-16 bg-gold/60" />
             </div>
-          ))}
+          </div>
+          <div className="absolute left-[31%] top-0 z-10 w-[42%] border border-gold/50 bg-card p-3 shadow-float">
+            <div className="frame-gold flex aspect-[3/4] flex-col items-center justify-center bg-background p-5 text-center">
+              <span className="text-[0.55rem] tracking-[0.28em] text-gold-dark uppercase">You are invited</span>
+              <Ornament className="my-5 w-24" />
+              <p className="font-serif text-3xl leading-none text-wine">A Beautiful<br />Beginning</p>
+              <p className="mt-5 text-[0.58rem] tracking-[0.18em] uppercase">18 • 12 • 2026</p>
+            </div>
+          </div>
+          <div className="absolute right-[4%] top-[16%] w-[38%] rotate-6 border border-gold/40 bg-wine p-3 shadow-card">
+            <div className="flex aspect-[3/4] flex-col items-center justify-center border border-gold/50 p-4 text-center text-primary-foreground">
+              <span className="text-[0.55rem] tracking-[0.25em] text-gold-light uppercase">Celebrate</span>
+              <p className="mt-7 font-serif text-3xl italic">An Evening<br />Together</p>
+              <div className="my-6 h-px w-16 bg-gold-light/60" />
+              <span className="text-[0.55rem] tracking-[0.2em] uppercase">Save the date</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

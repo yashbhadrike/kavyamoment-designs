@@ -40,11 +40,12 @@ export const whatsappLink = (text = "Hi KavyaVerse Digital! I'd like to order an
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 
 export const nav = [
+  { label: "Home", href: "#top" },
+  { label: "Invitations", href: "#gallery" },
   { label: "Occasions", href: "#occasions" },
-  { label: "Packages", href: "#packages" },
   { label: "Pricing", href: "#pricing" },
-  { label: "Designs", href: "#gallery" },
   { label: "How It Works", href: "#how-it-works" },
+  { label: "Contact", href: "#order" },
 ];
 
 export const occasions = [
@@ -63,7 +64,7 @@ export const occasions = [
 export const packages = [
   {
     name: "Static Invitation",
-    tagline: "Elegant digital card",
+    tagline: "Elegant digital invitation",
     price: 499,
     includes: ["1 HD image card", "Your names & details", "WhatsApp-ready size", "1 revision"],
     image: minimal,
@@ -82,13 +83,6 @@ export const packages = [
     price: 1999,
     includes: ["Designed from scratch", "Multiple pages / events", "HD image + PDF", "Unlimited tweaks"],
     image: heritage,
-  },
-  {
-    name: "Invitation + Video",
-    tagline: "Complete digital invitation package",
-    price: 2499,
-    includes: ["Static card + video", "Matching design set", "HD, PDF & MP4", "3 revisions"],
-    image: wedding,
   },
 ];
 
@@ -164,21 +158,21 @@ export const designs: {
 ];
 
 export const deliverables = [
-  { title: "Personalised Design", desc: "Made around your names, date and story." },
-  { title: "HD Image", desc: "Crisp, high-resolution card for any screen." },
+  { title: "Custom Design", desc: "Styled around your celebration." },
+  { title: "HD Quality", desc: "Crisp on every screen." },
   { title: "WhatsApp Ready", desc: "Perfect size for sharing with family & friends." },
-  { title: "PDF Version", desc: "For email, printing and formal sharing." },
-  { title: "Animated Video Option", desc: "Add music and motion to your invite." },
-  { title: "Name & Event Details", desc: "Venue, timings, maps and RSVP included." },
-  { title: "Revisions", desc: "We refine until it feels right." },
-  { title: "Fast Delivery", desc: "Most invitations ready within 24–48 hours." },
+  { title: "PDF Version", desc: "Ready for email or print." },
+  { title: "Personalised Details", desc: "Names, dates, venue and RSVP." },
+  { title: "Revision Support", desc: "Thoughtful changes before delivery." },
+  { title: "Fast Delivery", desc: "Ready within 24–48 hours." },
+  { title: "Video Option", desc: "Add motion and music." },
 ];
 
 export const steps = [
-  { n: "01", title: "Choose Your Design", desc: "Browse and select the invitation style you love." },
-  { n: "02", title: "Share Your Details", desc: "Send names, dates, venue, photos and other information." },
-  { n: "03", title: "We Design It", desc: "Your invitation is personalised and prepared for you." },
-  { n: "04", title: "Share the Moment", desc: "Receive your final invitation and share it with everyone." },
+  { n: "01", title: "Choose", desc: "Choose your design." },
+  { n: "02", title: "Share", desc: "Send your event details." },
+  { n: "03", title: "Design", desc: "We personalise your invitation." },
+  { n: "04", title: "Deliver", desc: "Receive your final digital invitation." },
 ];
 
 export const moments = [
@@ -195,10 +189,10 @@ export const moments = [
 ];
 
 export const whyUs = [
-  { title: "Designed with Detail", desc: "Every invitation is carefully designed around your occasion." },
-  { title: "Personalised for You", desc: "Your names, photos, dates and story become part of the design." },
-  { title: "Made for Sharing", desc: "Optimised for WhatsApp, Instagram and digital sharing." },
-  { title: "Created for Your Moment", desc: "Traditional, modern, minimal or luxurious — choose your style." },
+  { title: "Personalised", desc: "Your details become part of the design." },
+  { title: "Elegant", desc: "Designed with attention to typography and detail." },
+  { title: "Easy to Share", desc: "Made for WhatsApp and digital sharing." },
+  { title: "Made for You", desc: "Every celebration gets its own visual personality." },
 ];
 
 export const formatINR = (n: number) => `₹${n.toLocaleString("en-IN")}`;

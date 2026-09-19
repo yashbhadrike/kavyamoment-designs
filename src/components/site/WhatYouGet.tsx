@@ -23,7 +23,7 @@ export function WhatYouGet() {
         />
         <div className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4 md:gap-8">
           {deliverables.map((d, i) => {
-            const Icon = icons[i];
+            const Icon = icons[i] ?? Sparkles;
             return (
               <div key={d.title} className="flex flex-col items-center text-center">
                 <span className="mb-4 grid size-14 place-items-center rounded-full border border-gold/50 bg-card text-gold-dark shadow-card">

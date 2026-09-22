@@ -79,6 +79,7 @@ export type Database = {
           image_url: string | null
           is_active: boolean
           name: string
+          price_prefix: string | null
           slug: string
           sort_order: number
           starting_price: number | null
@@ -95,6 +96,7 @@ export type Database = {
           image_url?: string | null
           is_active?: boolean
           name: string
+          price_prefix?: string | null
           slug: string
           sort_order?: number
           starting_price?: number | null
@@ -111,6 +113,7 @@ export type Database = {
           image_url?: string | null
           is_active?: boolean
           name?: string
+          price_prefix?: string | null
           slug?: string
           sort_order?: number
           starting_price?: number | null

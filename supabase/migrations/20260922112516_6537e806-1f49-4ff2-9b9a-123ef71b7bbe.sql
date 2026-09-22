@@ -1,0 +1,1 @@
+ALTER TABLE public.formats ADD COLUMN IF NOT EXISTS price_prefix text DEFAULT 'Starting from';

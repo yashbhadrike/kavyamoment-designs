@@ -55,7 +55,7 @@ function AdminOccasions() {
         is_active: row.is_active,
       })
       .eq("id", row.id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success("Saved");
     void load();
   };
@@ -68,14 +68,14 @@ function AdminOccasions() {
       sort_order: rows.length + 1,
       is_active: false,
     });
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     void load();
   };
 
   const remove = async (id: string) => {
-    if (!confirm("Delete this occasion?")) return;
+    if (!confirm("Delete this occasion?")) { return; }
     const { error } = await supabase.from("occasions").delete().eq("id", id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     void load();
   };
 

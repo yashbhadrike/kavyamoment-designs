@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as AdminFormatsRouteImport } from './routes/admin/formats'
+import { Route as AdminOccasionsRouteImport } from './routes/admin/occasions'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,28 +30,50 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminFormatsRoute = AdminFormatsRouteImport.update({
+  id: '/formats',
+  path: '/formats',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminOccasionsRoute = AdminOccasionsRouteImport.update({
+  id: '/occasions',
+  path: '/occasions',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
+  '/admin/formats': typeof AdminFormatsRoute
+  '/admin/occasions': typeof AdminOccasionsRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin/formats': typeof AdminFormatsRoute
+  '/admin/occasions': typeof AdminOccasionsRoute
   '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
+  '/admin/formats': typeof AdminFormatsRoute
+  '/admin/occasions': typeof AdminOccasionsRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/admin/'
+  fullPaths: '/' | '/admin' | '/admin/formats' | '/admin/occasions' | '/admin/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin'
-  id: '__root__' | '/' | '/admin' | '/admin/'
+  to: '/' | '/admin/formats' | '/admin/occasions' | '/admin'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/admin/formats'
+    | '/admin/occasions'
+    | '/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -80,14 +104,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/formats': {
+      id: '/admin/formats'
+      path: '/formats'
+      fullPath: '/admin/formats'
+      preLoaderRoute: typeof AdminFormatsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/occasions': {
+      id: '/admin/occasions'
+      path: '/occasions'
+      fullPath: '/admin/occasions'
+      preLoaderRoute: typeof AdminOccasionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
 interface AdminRouteChildren {
+  AdminFormatsRoute: typeof AdminFormatsRoute
+  AdminOccasionsRoute: typeof AdminOccasionsRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminFormatsRoute: AdminFormatsRoute,
+  AdminOccasionsRoute: AdminOccasionsRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 

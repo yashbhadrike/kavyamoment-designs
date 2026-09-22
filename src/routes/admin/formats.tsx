@@ -57,7 +57,7 @@ function AdminFormats() {
         is_active: row.is_active,
       })
       .eq("id", row.id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success("Saved");
     void load();
   };
@@ -68,7 +68,8 @@ function AdminFormats() {
     const { error } = await supabase.storage.from("media").upload(path, file, { upsert: true });
     if (error) {
       setUploading(null);
-      return toast.error(error.message);
+      toast.error(error.message);
+      return;
     }
     const { data: signed } = await supabase.storage.from("media").createSignedUrl(path, TEN_YEARS);
     const url = signed?.signedUrl ?? null;
@@ -88,7 +89,7 @@ function AdminFormats() {
 
   const removeImage = async (row: Row) => {
     const { error } = await supabase.from("formats").update({ image_url: null }).eq("id", row.id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     void load();
   };
 
@@ -100,14 +101,14 @@ function AdminFormats() {
       sort_order: rows.length + 1,
       is_active: false,
     });
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     void load();
   };
 
   const remove = async (id: string) => {
-    if (!confirm("Delete this format?")) return;
+    if (!confirm("Delete this format?")) { return; }
     const { error } = await supabase.from("formats").delete().eq("id", id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     void load();
   };
 

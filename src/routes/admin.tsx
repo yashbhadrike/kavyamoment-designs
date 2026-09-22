@@ -66,7 +66,10 @@ function AdminLayout() {
 
   const claimAdmin = async () => {
     const { data, error } = await supabase.rpc("claim_admin");
-    if (error) return toast.error(error.message);
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
     if (data) {
       toast.success("You are now the admin.");
       void refresh();

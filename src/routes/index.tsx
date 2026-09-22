@@ -49,6 +49,5 @@ function Index() {
       </main>
       <Footer />
     </OccasionFilterProvider>
-    </>
   );
 }

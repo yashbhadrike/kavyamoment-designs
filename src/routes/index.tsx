@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <>
+    <OccasionFilterProvider>
       <Navbar />
       <main>
         <Hero />
@@ -48,6 +48,7 @@ function Index() {
         <FinalCta />
       </main>
       <Footer />
+    </OccasionFilterProvider>
     </>
   );
 }

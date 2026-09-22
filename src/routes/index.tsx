@@ -11,6 +11,7 @@ import { Moments } from "@/components/site/Moments";
 import { WhyUs } from "@/components/site/WhyUs";
 import { FinalCta } from "@/components/site/FinalCta";
 import { Footer } from "@/components/site/Footer";
+import { OccasionFilterProvider } from "@/components/site/occasion-filter";
 
 const title = "KavyaVerse Digital — Digital Invitations for Every Occasion";
 const description =
@@ -32,7 +33,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <>
+    <OccasionFilterProvider>
       <Navbar />
       <main>
         <Hero />
@@ -47,6 +48,6 @@ function Index() {
         <FinalCta />
       </main>
       <Footer />
-    </>
+    </OccasionFilterProvider>
   );
 }

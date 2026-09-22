@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { designs, formatINR, galleryFilters, whatsappLink, type GalleryFilter } from "@/data/site";
 import { SectionHeading } from "./Ornament";
+import { useOccasionFilter } from "./occasion-filter";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 export function Gallery() {
   const [active, setActive] = useState<GalleryFilter>("All");
+  const { occasion } = useOccasionFilter();
+
+  useEffect(() => {
+    if (!occasion) return;
+    const match = galleryFilters.find((f) => f.toLowerCase() === occasion.toLowerCase());
+    setActive((match ?? "All") as GalleryFilter);
+  }, [occasion]);
   const list = active === "All" ? designs : designs.filter((d) => d.tags.includes(active));
 
   return (
